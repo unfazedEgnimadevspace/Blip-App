@@ -12,13 +12,14 @@ class UsersController < ApplicationController
 
   # returns all the users in the database
   def index
-    @users = User.paginate(page: params[:page], per_page: 15)
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 15)
   end
   
 
 # returns only one user in the database
   def show
    @user = User.find(params[:id])
+   redirect_to root_url and return unless @user.activated?
   end
 
 
@@ -32,9 +33,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:green] = "Welcome to blip app #{@user.name}"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:blue] = "Check your email for an account activation link"
+      redirect_to root_url
     else
       render 'new'
     end
