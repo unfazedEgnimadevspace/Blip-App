@@ -40,6 +40,20 @@ module SessionsHelper
         @current_user = nil
     end
     
+    def current_user?(user)
+        user && user == current_user
+    end
+
+    def redirect_back_or(default)
+        redirect_to(session[:forward_url] || default)
+        session.delete(:forward_url)
+    end
+    
+
+    def store_location
+        session[:forward_url] = request.original_url if request.get?
+    end
+    
     
     
     

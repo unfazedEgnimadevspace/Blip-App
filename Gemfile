@@ -80,3 +80,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "faker", "~> 3.1"
+
+gem "hirb", "~> 0.7.3"
+
+gem "will_paginate", "~> 3.3"
+
+gem "bootstrap-will_paginate", "~> 1.0"

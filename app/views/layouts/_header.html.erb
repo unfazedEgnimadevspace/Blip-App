@@ -14,16 +14,18 @@
         <!-- Links Section -->
         <div
             class="items-center md:space-x-8 justify-center justify-items-start md:justify-items-center md:flex md:pt-2 w-full left-0 top-16 px-5 md:px-10 py-3 md:py-0 border-t md:border-t-0">
-               <%= link_to("Home", root_path, class: "flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300")%>
+            <%= link_to("Home", root_path, class: "flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300")%>
             <%= link_to("Contact", contact_path, class: "flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300")%>
-            <%= link_to("Help", help_path, class: " block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent")%>
             <%= link_to("About", about_path, class: "flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300")%>
+            <%= link_to("Help", help_path, class: " block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent")%>
+            
         </div>
 
         <!-- Auth Links -->
         <div class="flex items-center space-x-5 hidden md:flex">
 
             <% if logged_in? %>
+                <%= link_to("Users", users_path, class: "flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300")%>
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Account <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                 <!-- Dropdown menu -->
                 <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
@@ -33,7 +35,8 @@
                         <%= link_to("Profile", current_user ,class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white")%>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        
+                       <%= link_to "Settings", edit_user_path(current_user), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                     </li>
                     <li>
                         <%= link_to("Log out", logout_path, data: { "turbo-method": :delete }, class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white")%>
