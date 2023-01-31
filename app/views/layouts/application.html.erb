@@ -34,8 +34,9 @@
       </div>
      
     </main>
-    <%= render 'layouts/footer' %>
-  
+    <% unless action_name == 'show' %>
+      <%= render 'layouts/footer' %>
+    <%end%>
    
   </body>
 </html>
