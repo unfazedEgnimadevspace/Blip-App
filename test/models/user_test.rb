@@ -67,7 +67,16 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = "akalugo"
     assert @user.valid?
   end
+
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?(:remember, '')
+  end
+
+  test "When a user is destroyed all associated microposts should also be destroyed" do
+    @user.save
+    @user.microposts.create!(content: "About to be deleted")
+    assert_difference "Micropost.count", -1 do
+      @user.destroy
     end
+  end
 end

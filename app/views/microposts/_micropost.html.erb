@@ -1,0 +1,31 @@
+<!-- component -->
+<li class="bg-white dark:bg-black p-10 flex items-center justify-center" id="micropost-<%= micropost.id %>">
+    <div class="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 rounded-xl border max-w-sm">
+      <div class="flex justify-between">
+        <div class="flex items-center">
+          
+           <%= link_to(gravatar_for(micropost.user, size:50), micropost.user)%>
+          <div class="ml-1.5 text-sm leading-tight">
+            <span class="text-black dark:text-white font-bold block "><%= micropost.user.name%></span>
+            <span class="text-gray-500 dark:text-gray-400 font-normal block">@<%= micropost.user.name%></span>
+          </div>
+        </div>
+       <img class="h-4 w-4 ", src="https://flowbite.com/docs/images/logo.svg"  />
+      </div>
+      <p class="text-black dark:text-white block text-xl leading-snug mt-3"><%= micropost.content %></p>
+      <img class="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src="https://pbs.twimg.com/media/EpkuplDXEAEjbFc?format=jpg&name=medium"/>
+      <p class="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5"><%= time_ago_in_words(micropost.created_at)%> ago</p>
+      <div class="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
+      <div class="text-gray-500 dark:text-gray-400 flex mt-3 justify-between">
+        <div class="flex items-center mr-6">
+          <svg class="fill-current h-5 w-auto" viewBox="0 0 24 24" class="r-1re7ezh r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr" style=""><g><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path></g></svg>
+          <span class="ml-3">615</span>
+        </div>
+        <% if current_user?(micropost.user) %>
+          <%= link_to micropost, class: "h-4 w-4", data: {"turbo-method": :delete, turbo_confirm: "Are you sure"} do %>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="20px" height="20px"><path d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"/></svg>
+          <% end %>
+        <% end %>  
+      </div>
+    </div>
+  </li>

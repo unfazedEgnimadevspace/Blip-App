@@ -14,7 +14,7 @@
                   Reset password
               </h1>
               <%= form_with(model: @user, url: password_reset_path(params[:id]), local: true, data: { turbo: false }, class: "space-y-4 md:space-y-6") do |f| %>
-                <%= render 'shared/error_messages' %>
+                <%= render 'shared/error_messages', object: f.object %>
                 <%= hidden_field_tag :email, @user.email %> 
                 <div>
                   <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
