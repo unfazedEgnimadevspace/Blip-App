@@ -13,7 +13,7 @@
        <img class="h-4 w-4 ", src="https://flowbite.com/docs/images/logo.svg"  />
       </div>
       <p class="text-black dark:text-white block text-xl leading-snug mt-3"><%= micropost.content %></p>
-      <img class="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src="https://pbs.twimg.com/media/EpkuplDXEAEjbFc?format=jpg&name=medium"/>
+      <%= image_tag micropost.display_image if micropost.image.attached? %>
       <p class="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5"><%= time_ago_in_words(micropost.created_at)%> ago</p>
       <div class="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
       <div class="text-gray-500 dark:text-gray-400 flex mt-3 justify-between">

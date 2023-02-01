@@ -88,3 +88,9 @@ gem "hirb", "~> 0.7.3"
 gem "will_paginate", "~> 3.3"
 
 gem "bootstrap-will_paginate", "~> 1.0"
+
+gem "active_storage_validations", "~> 1.0"
+
+gem "image_processing", "~> 1.12"
+
+gem "mini_magick", "~> 4.12"
