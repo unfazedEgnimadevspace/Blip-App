@@ -1,7 +1,6 @@
-<% provide(:title, "All users")%>
+<% provide(:title, "")%>
     <div class="mx-auto w-full">
 
-   <h1 class="text-4xl text-center">All users</h1>
    
    <%= will_paginate %>
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-20 mx-auto w-full">
@@ -22,12 +21,6 @@
                                  <% if user.admin? %>   
                                     <span class="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">Admin</span>
                                 <% end %>
-                                <% if current_user.admin? && !current_user?(user) %>
-                                    <%= link_to user, data: { "turbo-method": :delete, turbo_confirm: "You sure?" } do %>
-                                        <span class="rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-800">Delete</span>
-                                    <% end %>
-                                <% end %>
-                                </dd>
                             </dl>
                         </div>
                         <div>

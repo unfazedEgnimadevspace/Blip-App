@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   #this filter checks if a user is logged in before he or she can access those controllers
 
-  before_action :logged_in_user, only: %i[ edit update index destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+    :following, :followers]
+    
 
   # this filter checks if the user logged is the right owner of the user resource
   before_action :correct_user, only: %i[ edit update]
@@ -66,7 +68,20 @@ class UsersController < ApplicationController
     flash[:red] = "User deleted successfully"
     redirect_to users_url
   end
-      
+  
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
   
   
 
