@@ -1,0 +1,18 @@
+databases:
+  - name: blip_app
+    databaseName: blip_app_production
+    user: blip_app
+
+services:
+  - type: web
+    name: blip_app
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: BLIP_APP_DATABASE_URL
+        fromDatabase:
+          name: blip_app
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

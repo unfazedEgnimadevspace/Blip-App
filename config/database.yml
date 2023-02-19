@@ -29,3 +29,4 @@ production:
   database: blip_app_production
   username: blip_app
   password: <%= ENV['BLIP_APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['BLIP_APP_DATABASE_URL'] %>
