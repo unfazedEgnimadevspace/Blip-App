@@ -94,3 +94,5 @@ gem "active_storage_validations", "~> 1.0"
 gem "image_processing", "~> 1.12"
 
 gem "mini_magick", "~> 4.12"
+
+gem "acts_as_votable", "~> 0.14.0"

@@ -18,6 +18,18 @@ class MicropostsController < ApplicationController
         flash[:green] = "Micropost deleted successfully"
         redirect_to request.referrer || root_url
     end
+    def like
+        @micropost = Micropost.find(params[:id])
+          if current_user.voted_up_on? @micropost
+            @micropost.downvote_by current_user
+          else #not voted
+            @micropost.upvote_by current_user
+          end
+          respond_to do |format|
+           format.js
+          end 
+    end
+    
 
     private 
     def micropost_params
