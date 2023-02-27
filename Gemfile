@@ -96,3 +96,5 @@ gem "image_processing", "~> 1.12"
 gem "mini_magick", "~> 4.12"
 
 gem "acts_as_votable", "~> 0.14.0"
+
+gem 'figaro'
