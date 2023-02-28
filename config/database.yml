@@ -26,7 +26,7 @@ production:
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: blip_app_production
-  username: blip_app
+  database: blip_app_db
+  username: blip_app_db_user
   password: <%= ENV['BLIP_APP_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
