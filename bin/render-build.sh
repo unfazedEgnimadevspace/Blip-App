@@ -7,5 +7,5 @@ npm install flowbite
 
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
-bundle exec rake db:migrate:reset
-bundle exec rails db:seed
+bundle exec rake db:migrate
+
