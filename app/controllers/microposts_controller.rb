@@ -26,7 +26,7 @@ class MicropostsController < ApplicationController
             @micropost.upvote_by current_user
           end
           respond_to do |format|
-          format.html { render(:text => "not implemented") }
+          format.html { redirect_to @micropost }
            format.js
           end 
     end
